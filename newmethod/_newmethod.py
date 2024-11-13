@@ -35,6 +35,12 @@
 #         nn.init.trunc_normal_(self.cluster_embeddings, std=0.1)
 #         self.cluster_embeddings = nn.Parameter(F.normalize(self.cluster_embeddings))
 
+        # cluster_counts = torch.bincount(cluster_labels, minlength=num_clusters)  
+        # total_docs = cluster_labels.size(0) 
+        # cluster_measure = cluster_counts / total_docs  
+
+        # self.cluster_weights = nn.Parameter(cluster_measure.unsqueeze(1), requires_grad=False)
+            
 #         # Các trọng số ban đầu
 #         self.word_weights = nn.Parameter((torch.ones(vocab_size) / vocab_size).unsqueeze(1))
 #         self.topic_weights = nn.Parameter((torch.ones(self.num_topics) / self.num_topics).unsqueeze(1))
